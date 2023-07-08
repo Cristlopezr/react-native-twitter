@@ -26,6 +26,8 @@ function NewTweet() {
     const onTweetPress = () => {
         console.warn('Posting Tweet', text);
 
+        if (text === '') return;
+
         setText('');
         router.back();
     };
@@ -42,14 +44,13 @@ function NewTweet() {
                     </Pressable>
                 </View>
                 <View style={styles.inputContainer}>
-                    <Image src={user.image} style={styles.image} />
+                    <Image source={{ uri: user.image }} style={styles.image} />
                     <TextInput
                         value={text}
                         onChangeText={setText}
                         style={{ flex: 1 }}
                         placeholder="What's happening?"
                         multiline
-                        numberOfLines={5}
                     />
                 </View>
             </View>
